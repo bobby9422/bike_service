@@ -59,6 +59,8 @@ public class ServiceAddActivity extends AppCompatActivity {
         try {
             //  mydatabase = openOrCreateDatabase("service", MODE_PRIVATE, null);
             mydatabase.execSQL("CREATE TABLE IF NOT EXISTS user(vehicle VARCHAR,model VARCHAR,name VARCHAR,mobile VARCHAR,email VARCHAR);");
+            mydatabase.execSQL("CREATE TABLE IF NOT EXISTS service(vehicle VARCHAR,sdate VARCHAR,edate VARCHAR,bill VARCHAR,summary VARCHAR);");
+            mydatabase.execSQL("CREATE TABLE IF NOT EXISTS rem(vehicle VARCHAR,date VARCHAR,sn VARCHAR(20));");
         }
         catch(Exception e)
         {
@@ -97,7 +99,16 @@ public class ServiceAddActivity extends AppCompatActivity {
                 // mod.setText(resultSet.getString(1));
                 name.setText(resultSet.getString(2));
                 mob.setText(resultSet.getString(3));
-
+                resultSet = mydatabase.rawQuery("Select sn from rem where vehicle='" + veh.getText().toString().toUpperCase() + "'", null);
+                if (resultSet.getCount() == 0)
+                {
+                    servicenote.setText("No Note");
+                }
+                else if(resultSet.getCount() > 0)
+                {
+                    resultSet.moveToFirst();
+                    servicenote.setText(resultSet.getString(0));
+                }
             }
         }
     }
