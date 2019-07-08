@@ -26,4 +26,10 @@ public class Main2Activity extends AppCompatActivity {
         // i.putExtra("user",user.getText().toString().toUpperCase());
         startActivity(i);
     }
+    public void service(View v)
+    {
+        i = new Intent(Main2Activity.this, ServiceAddActivity.class);
+        // i.putExtra("user",user.getText().toString().toUpperCase());
+        startActivity(i);
+    }
 }

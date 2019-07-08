@@ -13,6 +13,7 @@
         android:layout_height="50dp"
         android:layout_x="41dp"
         android:layout_y="44dp"
+        android:onClick="service"
         android:text="Service"
         android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
