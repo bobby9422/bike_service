@@ -21,9 +21,11 @@ import android.widget.Toast;
 import java.io.Console;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Main4Activity extends AppCompatActivity {
+
     Button search,adduser,set,cancel;
     TextView ak,tr,day;
     EditText veh,name,mob,nsn,akm,tkm,day1;
@@ -37,6 +39,7 @@ public class Main4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
         this.setTitle("Reminder");
+
         mydatabase = openOrCreateDatabase("service", MODE_PRIVATE, null);
         search=(Button) findViewById(R.id.button12) ;
         adduser=(Button) findViewById(R.id.button13) ;

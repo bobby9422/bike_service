@@ -6,12 +6,16 @@
     android:layout_height="match_parent"
     tools:layout_editor_absoluteX="140dp"
     tools:layout_editor_absoluteY="510dp">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ServiceAddActivity">
 
     <AbsoluteLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ServiceAddActivity">
+        android:layout_height="wrap_content"
+        >
 
         <EditText
             android:id="@+id/sad_vehicleNo_editText"
@@ -66,6 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_x="143dp"
             android:layout_y="157dp"
+            android:onClick="add"
             android:text="ADD" />
 
         <TextView
@@ -103,6 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_x="287dp"
             android:layout_y="329dp"
+            android:onClick="send"
             android:text="send"
             tools:layout_editor_absoluteX="295dp"
             tools:layout_editor_absoluteY="325dp" />
@@ -113,6 +119,7 @@
             android:layout_height="wrap_content"
             android:layout_x="50dp"
             android:layout_y="395dp"
+            android:onClick="bill"
             android:text="bill" />
 
         <Button
@@ -121,7 +128,21 @@
             android:layout_height="wrap_content"
             android:layout_x="252dp"
             android:layout_y="391dp"
+            android:onClick="delete"
             android:text="delete" />
 
     </AbsoluteLayout>
+    <AbsoluteLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        tools:context=".ServiceAddActivity">
+
+        <ListView
+            android:id="@+id/prlist"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null"/>
+
+    </AbsoluteLayout>
+    </LinearLayout>
 </ScrollView>
