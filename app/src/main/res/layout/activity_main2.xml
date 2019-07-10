@@ -43,6 +43,7 @@
         android:layout_height="50dp"
         android:layout_x="49dp"
         android:layout_y="301dp"
+        android:onClick="aservice"
         android:text="Active Servicing"
         android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 

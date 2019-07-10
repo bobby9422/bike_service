@@ -29,6 +29,7 @@ public class ServiceAddActivity extends AppCompatActivity {
     SQLiteDatabase mydatabase;
     Intent i;
     ArrayAdapter<prview> adapter;
+    View v;
     private ArrayList<prview> prlist = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +72,20 @@ public class ServiceAddActivity extends AppCompatActivity {
         veh.setVisibility(View.VISIBLE);
         brecord.setVisibility(View.GONE);
         bamount.setVisibility(View.GONE);
+
         try {
             //  mydatabase = openOrCreateDatabase("service", MODE_PRIVATE, null);
             mydatabase.execSQL("CREATE TABLE IF NOT EXISTS user(vehicle VARCHAR,model VARCHAR,name VARCHAR,mobile VARCHAR,email VARCHAR);");
             mydatabase.execSQL("CREATE TABLE IF NOT EXISTS service(vehicle VARCHAR,sdate VARCHAR,edate VARCHAR,bill VARCHAR,summary VARCHAR);");
             mydatabase.execSQL("CREATE TABLE IF NOT EXISTS rem(vehicle VARCHAR,date VARCHAR,sn VARCHAR(20));");
+            i=getIntent();
+            String no=i.getStringExtra("vehicle");
+            //  Toast.makeText(Main3Activity.this, "hello:" +no , Toast.LENGTH_LONG).show();
+            veh.setText(no);
+            if(!veh.getText().toString().isEmpty()){
+
+                search(v);
+            }
         }
         catch(Exception e)
         {
